@@ -1,0 +1,27 @@
+ip: "192.168.10.42"
+memory: 2048
+cpus: 2
+provider: virtualbox
+
+name: "PHP Backend"
+hostname: "PHP Backend"
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: D:/laragon/www/homestead-project
+      to: /home/vagrant/code
+
+sites:
+    - map: application.local
+      to: /home/vagrant/code/public
+      type: "nginx"
+
+ports:
+    - send: 2242
+      to: 22
+    - send: 4430
+      to: 443
